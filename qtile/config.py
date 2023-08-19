@@ -173,7 +173,7 @@ def window_to_previous_screen(qtile, switch_group=False, switch_screen=False):
     if i != 0:
         group = qtile.screens[i - 1].group.name
         qtile.current_window.togroup(group, switch_group=switch_group)
-        if switch_screen == False:
+        if switch_screen == True:
             qtile.cmd_to_screen(i - 1)
 
 def window_to_next_screen(qtile, switch_group=False, switch_screen=False):
@@ -193,16 +193,16 @@ keys.extend([
 groups = []
 
 # FOR QWERTY KEYBOARDS
-group_names = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",]
+group_names = ["1", "2", "3", "4", "5", "6", "7",]
 
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
 #group_labels = ["", "", "", "", "", "", "", "", "", "",]
-group_labels = ["WWW", "GFX", "CON", "DEV", "SUBLIME", "FILES", "SYS", "MUX", "VBOX", "VID",]
+group_labels = ["WWW", "DEV", "CON", "SYS", "MUX", "VBOX", "FILES",]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+group_layouts = ["monadtall", "monadtall", "ratiotile", "ratiotile", "monadtall", "monadtall", "monadwide",]
 #group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
 
 for i in range(len(group_names)):
@@ -245,11 +245,11 @@ layouts = [
     layout.MonadTall(**layout_theme),
     #layout.MonadWide(margin=8, border_width=2, border_focus="#5e81ac", border_normal="#4c566a"),
     layout.MonadWide(**layout_theme),
-    layout.Matrix(**layout_theme),
-    layout.Bsp(**layout_theme),
-    layout.Floating(**layout_theme),
+    #layout.Matrix(**layout_theme),
+    #layout.Bsp(**layout_theme),
+    #layout.Floating(**layout_theme),
     layout.RatioTile(**layout_theme),
-    layout.Max(**layout_theme)
+    #layout.Max(**layout_theme)
 ]
 
 # COLORS FOR THE BAR
